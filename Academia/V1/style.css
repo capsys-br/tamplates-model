@@ -1,0 +1,458 @@
+/* Importação de Fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+/* Estilos Globais e Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #000;
+    --secondary-color: #25d366; /* Verde do WhatsApp */
+    --light-color: #f4f4f4;
+    --dark-color: #333;
+    --accent-color: #ff6b6b; /* Vermelho/Laranja de destaque */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    background-color: #fff;
+    color: var(--dark-color);
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+section {
+    padding: 60px 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+section.animate-on-scroll.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animações de Elementos */
+.animate-on-scroll.show h1,
+.animate-on-scroll.show h2 {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.animate-on-scroll.show p {
+    animation: fadeInUp 1s 0.2s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Botão Fixo do WhatsApp */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Header & Hero Section */
+.header {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=FUNDO+DINAMICO') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.hero-content {
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    background-color: #ff4747;
+}
+
+/* Seções Padrão */
+.about-us, .products-section, .benefits-section, .testimonials-section {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+}
+
+/* Seção Sobre Nós */
+.about-us {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    text-align: left;
+}
+
+.about-us .about-image {
+    flex: 1;
+    max-width: 500px;
+}
+
+.about-us .about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.about-us .about-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.about-us .about-text p {
+    font-size: 1.1em;
+}
+
+/* Seção de Produtos */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    justify-items: center;
+}
+
+.product-card {
+    background-color: var(--light-color);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.product-card h3 {
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.btn-card {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-card:hover {
+    background-color: var(--dark-color);
+}
+
+/* Seção de Benefícios */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.benefit-item {
+    padding: 20px;
+}
+
+.benefit-item i {
+    font-size: 3em;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.benefit-item h3 {
+    margin-bottom: 10px;
+}
+
+/* Seção de Depoimentos (Slider) */
+.testimonials-section {
+    background-color: var(--light-color);
+}
+
+.testimonial-slider-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.testimonial-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.testimonial-card {
+    min-width: 100%;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.testimonial-card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.testimonial-card span {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+.slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+/* Seção Final de Contato */
+.cta-final {
+    background: url('https://via.placeholder.com/1920x800/222222/FFFFFF?text=Fundo+CTA+Final') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.cta-content p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.secondary-btn:hover {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+/* Rodapé */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    padding: 40px 20px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-brand, .footer-social, .footer-contact {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-social a {
+    color: var(--light-color);
+    margin: 0 10px;
+    font-size: 1.5em;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: var(--accent-color);
+}
+
+.footer-copy {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    font-size: 0.9em;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+
+    .about-us, .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
