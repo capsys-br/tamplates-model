@@ -84,13 +84,13 @@ nav {
 }
 
 .logo img {
-    max-height: 50px;
+    max-height: 62px;
     width: auto;
     transition: max-height 0.4s ease;
 }
 
 header.scrolled .logo img {
-    max-height: 40px;
+    max-height: 53px;
 }
 
 .nav-list {
