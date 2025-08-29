@@ -1,0 +1,345 @@
+/* --- CONFIGURAÇÕES GERAIS E VARIÁVEIS --- */
+:root {
+    --primary-color: #FFD700; /* Amarelo Dourado Vibrante */
+    --primary-color-rgba: 255, 215, 0; /* A mesma cor em formato RGBA */
+    --dark-bg: #1a1a1a;
+    --medium-bg: #2c2c2c;
+    --light-text: #f5f5f5;
+    --dark-text: #1a1a1a; /* Texto escuro para fundos claros */
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 600;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--dark-text);
+    padding: 12px 28px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e6bf00;
+    transform: translateY(-3px);
+}
+
+/* --- CABEÇALHO --- */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: transparent;
+    padding: 15px 0;
+    transition: background-color 0.4s ease, padding 0.4s ease;
+}
+
+header.scrolled {
+    background-color: rgba(var(--primary-color-rgba), 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo img {
+    max-height: 50px;
+    width: auto;
+    transition: max-height 0.4s ease;
+}
+
+header.scrolled .logo img {
+    max-height: 40px;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-list a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.4s ease;
+}
+
+header.scrolled .nav-list a {
+    color: var(--dark-text);
+}
+
+.nav-list a:hover {
+    color: var(--primary-color);
+}
+
+header.scrolled .nav-list a:hover {
+    color: #000;
+}
+
+.mobile-menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.mobile-menu-icon i {
+    font-size: 1.8rem;
+    color: var(--light-text);
+    transition: color 0.4s ease;
+}
+
+header.scrolled .mobile-menu-icon i {
+    color: var(--dark-text);
+}
+
+/* Esconde elementos do menu mobile em telas grandes */
+.mobile-menu-close, .mobile-menu-logo {
+    display: none;
+}
+
+
+/* --- SEÇÃO HERÓI --- */
+.hero-section {
+    padding-top: 70px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: #fff;
+}
+
+/* (O restante do seu CSS continua aqui sem alterações... até a seção de responsividade) */
+/* ... */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main section {
+    padding: 100px 0;
+}
+
+.about-section .container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-image { flex: 1; }
+.about-image img { width: 100%; border-radius: 10px; }
+.about-text { flex: 1; }
+.about-text h2 { font-size: 2.5rem; margin-bottom: 20px; font-weight: 300; }
+.about-text h2 strong { font-weight: 700; color: var(--primary-color); }
+.about-text p { line-height: 1.8; }
+.features-section { background-color: var(--medium-bg); }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+.feature-item { text-align: center; padding: 30px; background-color: var(--dark-bg); border-radius: 10px; transition: transform 0.3s ease; }
+.feature-item:hover { transform: translateY(-10px); }
+.feature-item i { font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; }
+.feature-item h3 { font-size: 1.5rem; margin-bottom: 10px; }
+.classes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.class-card { height: 350px; border-radius: 10px; background-size: cover; background-position: center; position: relative; overflow: hidden; cursor: pointer; transition: transform 0.4s ease; }
+.class-card:hover { transform: scale(1.05); }
+.card-content { position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); }
+.card-content h3 { font-size: 1.8rem; color: #fff; }
+.testimonials-section { background-color: var(--medium-bg); }
+.testimonial-carousel { position: relative; max-width: 800px; margin: 0 auto; overflow: hidden; }
+.testimonial-slider { display: flex; transition: transform 0.5s ease-in-out; }
+.testimonial-slide { min-width: 100%; padding: 40px; text-align: center; }
+.testimonial-slide p { font-size: 1.2rem; font-style: italic; margin-bottom: 20px; }
+.testimonial-slide h4 { font-weight: 600; color: var(--primary-color); }
+.prev-btn, .next-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); color: #fff; border: none; padding: 15px; cursor: pointer; border-radius: 50%; font-size: 1.2rem; }
+.prev-btn { left: -20px; }
+.next-btn { right: -20px; }
+.contact-section { text-align: center; }
+.contact-section h2 { font-size: 2.8rem; }
+.contact-section p { font-size: 1.1rem; max-width: 600px; margin: 20px auto 40px; }
+.whatsapp-button { background-color: #25D366; color: #fff; font-size: 1.2rem; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 15px; transition: transform 0.3s ease, background-color 0.3s ease; animation: pulse 0s infinite; }
+.whatsapp-button:hover { background-color: #1EBE57; transform: scale(1.05); animation: none; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+.whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: #25D366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 1px 1px 1px #9999997e; z-index: 100; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: transform 0.3s ease; }
+.whatsapp-float:hover { transform: scale(1.1); }
+footer { background-color: var(--medium-bg); text-align: center; padding: 20px; font-size: 0.9rem; }
+.animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+.animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+.animate-on-scroll:nth-child(3) { transition-delay: 0.2s; }
+.animate-on-scroll:nth-child(4) { transition-delay: 0.3s; }
+/* ... */
+
+/* --- OVERLAY DO MENU --- */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998; /* Abaixo do menu */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .section-title, .about-text h2, .contact-section h2 { font-size: 2rem; }
+    .hero-content h1 { font-size: 2.5rem; }
+    
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .nav-list {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75vw; /* Aumentei um pouco a largura */
+        max-width: 320px;
+        height: 100vh;
+        
+        /* Mesmo estilo da navbar com scroll */
+        background-color: rgba(var(--primary-color-rgba), 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; /* Alinha os itens no topo */
+        gap: 40px; /* Espaçamento entre os links */
+        padding-top: 100px;
+        transition: right 0.4s ease-in-out;
+        z-index: 999;
+    }
+
+    .nav-list.active {
+        right: 0;
+    }
+
+    /* Estilo dos links dentro do menu mobile */
+    .nav-list a {
+        color: var(--dark-text);
+        font-size: 1.2rem;
+    }
+
+    .nav-list a:hover {
+        color: #000;
+    }
+
+    .mobile-menu-close, .mobile-menu-logo {
+        display: block; /* Mostra os elementos no mobile */
+    }
+
+    .mobile-menu-close {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        cursor: pointer;
+    }
+    .mobile-menu-close i {
+        font-size: 2rem;
+        color: var(--dark-text);
+    }
+    
+    .mobile-menu-logo {
+        position: absolute;
+        bottom: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .mobile-menu-logo img {
+        max-height: 50px;
+    }
+    
+    .about-section .container { flex-direction: column; }
+    .prev-btn { left: 5px; }
+    .next-btn { right: 5px; }
+    .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 24px; }
+}
